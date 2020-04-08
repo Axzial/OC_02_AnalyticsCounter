@@ -1,8 +1,12 @@
 package com.hemebiotech.analytics;
 
+import org.apache.log4j.Logger;
+
 public class Main {
 
 	private static Main instance;
+
+	private static Logger logger;
 
 	/**
 	 * Main instance getter
@@ -10,6 +14,10 @@ public class Main {
 	 */
 	public static Main getInstance(){
 		return instance;
+	}
+
+	public static Logger getLogger(){
+		return logger;
 	}
 
 	/**
@@ -27,5 +35,6 @@ public class Main {
 	 */
 	public static void init(){
 		instance = new Main();
+		logger = Logger.getLogger("AnalyticsCounter");
 	}
 }
