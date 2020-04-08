@@ -4,6 +4,10 @@ public class Main {
 
 	private static Main instance;
 
+	/**
+	 * Main instance getter
+	 * @return instance of main class
+	 */
 	public static Main getInstance(){
 		return instance;
 	}
