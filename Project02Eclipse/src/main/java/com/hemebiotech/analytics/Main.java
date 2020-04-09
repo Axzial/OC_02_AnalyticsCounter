@@ -16,6 +16,10 @@ public class Main {
 		return instance;
 	}
 
+	/**
+	 * Logger getter
+	 * @return log4j logger
+	 */
 	public static Logger getLogger(){
 		return logger;
 	}
@@ -23,9 +27,8 @@ public class Main {
 	/**
 	 * Main entry point
 	 * @param args received
-	 * @throws Exception
 	 */
-	public static void main(String args[]){
+	public static void main(String[] args){
 		init();
 		new AnalyticsCounter(args).launcher();
 	}
