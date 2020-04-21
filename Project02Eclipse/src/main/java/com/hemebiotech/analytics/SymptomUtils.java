@@ -1,6 +1,5 @@
-package com.hemebiotech.analytics.utils;
+package com.hemebiotech.analytics;
 
-import com.hemebiotech.analytics.Main;
 import io.vavr.collection.List;
 import org.apache.log4j.Logger;
 
@@ -24,8 +23,7 @@ public class SymptomUtils {
         if (!checkArgs(args)){
             errorShutdown(1, "Missing Arguments: <resultfilename> <sourcefile>");
         }
-        List argsList = List.ofAll(Arrays.asList(args)).drop(1);
-        return argsList;
+        return List.ofAll(Arrays.asList(args)).drop(1);
     }
 
     /**

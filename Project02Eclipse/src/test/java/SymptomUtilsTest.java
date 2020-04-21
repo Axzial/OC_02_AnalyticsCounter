@@ -1,4 +1,4 @@
-import com.hemebiotech.analytics.utils.SymptomUtils;
+import com.hemebiotech.analytics.SymptomUtils;
 import io.vavr.collection.List;
 import org.junit.jupiter.api.Test;
 

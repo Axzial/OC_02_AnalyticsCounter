@@ -1,6 +1,5 @@
-package com.hemebiotech.analytics.filemanager;
+package com.hemebiotech.analytics;
 
-import com.hemebiotech.analytics.Main;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -23,7 +22,7 @@ public class SymptomFileManager {
      */
     public List<File> getFilesFromArgs(io.vavr.collection.List<String> args){
 
-        List<File> fileList =  new ArrayList<>();
+        List<File> fileList =  new ArrayList<File>();
 
         for (String s : args){ //Get all args
             if (fileExists(s)){ //Check if file exists

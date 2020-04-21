@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.datamanager;
+package com.hemebiotech.analytics;
 
 import com.hemebiotech.analytics.objects.RawSymptomFileData;
 import com.hemebiotech.analytics.objects.SymptomFileData;
@@ -21,7 +21,7 @@ public class SymptomCounter {
      */
     public ArrayList<SymptomFileData> convertCount(ArrayList<RawSymptomFileData> rawSymptomFileDataList){
 
-        ArrayList<SymptomFileData> SymptomFileDataArrayList =  new ArrayList<>();
+        ArrayList<SymptomFileData> SymptomFileDataArrayList =  new ArrayList<SymptomFileData>();
 
         for (RawSymptomFileData rawSymptomFileData : rawSymptomFileDataList){
             TreeMap<String, Integer> sympMap = new TreeMap<>();

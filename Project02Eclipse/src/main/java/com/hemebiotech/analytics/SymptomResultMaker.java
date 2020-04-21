@@ -1,8 +1,6 @@
-package com.hemebiotech.analytics.resultmaker;
+package com.hemebiotech.analytics;
 
-import com.hemebiotech.analytics.AnalyticsCounter;
 import com.hemebiotech.analytics.objects.SymptomFileData;
-import com.hemebiotech.analytics.utils.SymptomUtils;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -17,13 +15,13 @@ public class SymptomResultMaker {
 
     SymptomUtils symptomUtils =  new SymptomUtils();
 
-    private String resultName = AnalyticsCounter.filename;
+    public SymptomResultMaker(){}
 
     /**
      * Create the result file from the SymptomFileData list
      * @param rawSymptomFileData list
      */
-    public SymptomResultMaker(ArrayList<SymptomFileData> rawSymptomFileData){
+    public void createFile(ArrayList<SymptomFileData> rawSymptomFileData, String resultName){
         try {
             File file =  new File(resultName);
             FileWriter fileWriter = new FileWriter(file);
@@ -35,7 +33,8 @@ public class SymptomResultMaker {
                 fileWriter.write("\n");
             }
             fileWriter.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             symptomUtils.errorShutdown(5, "Could not create result file, shuting down");
         }
     }

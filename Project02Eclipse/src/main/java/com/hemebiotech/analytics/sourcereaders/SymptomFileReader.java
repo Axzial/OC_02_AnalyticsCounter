@@ -35,11 +35,11 @@ public class SymptomFileReader implements ISymptomReader{
     @Override
     public ArrayList<RawSymptomFileData> getSymptoms() {
 
-        ArrayList<RawSymptomFileData> symptomsFileDataList = new ArrayList<>();
+        ArrayList<RawSymptomFileData> symptomsFileDataList = new ArrayList<RawSymptomFileData>();
 
         for (File file : filelist){
 
-            ArrayList<String> symptomsRaw = new ArrayList<>();
+            ArrayList<String> symptomsRaw = new ArrayList<String>();
 
             try {
                 BufferedReader bufferedReader =  new BufferedReader(new FileReader(file));
@@ -48,6 +48,7 @@ public class SymptomFileReader implements ISymptomReader{
                     symptomsRaw.add(line);
                     line = bufferedReader.readLine();
                 }
+                bufferedReader.close();
             } catch (IOException e) {
                 logger.error("Error while reading: " + file.getName() + ", (SKIPPING)");
             }

@@ -4,17 +4,7 @@ import org.apache.log4j.Logger;
 
 public class Main {
 
-	private static Main instance;
-
 	private static Logger logger;
-
-	/**
-	 * Main instance getter
-	 * @return instance of main class
-	 */
-	public static Main getInstance(){
-		return instance;
-	}
 
 	/**
 	 * Logger getter
@@ -37,7 +27,6 @@ public class Main {
 	 * Init base components
 	 */
 	public static void init(){
-		instance = new Main();
 		logger = Logger.getLogger("AnalyticsCounter");
 	}
 }
