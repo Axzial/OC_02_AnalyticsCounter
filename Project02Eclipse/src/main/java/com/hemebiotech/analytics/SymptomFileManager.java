@@ -1,6 +1,9 @@
 package com.hemebiotech.analytics;
 
-import org.apache.log4j.Logger;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ import java.util.List;
  */
 public class SymptomFileManager {
 
-    private Logger logger = Main.getLogger();
+    private Logger logger = LoggerFactory.getLogger(SymptomFileManager.class);
 
     public SymptomFileManager(){}
 
@@ -20,7 +23,7 @@ public class SymptomFileManager {
      * @param args path to files
      * @return a list of all files from args
      */
-    public List<File> getFilesFromArgs(io.vavr.collection.List<String> args){
+    public List<File> getFilesFromArgs(List<String> args){
 
         List<File> fileList =  new ArrayList<File>();
 
