@@ -1,19 +1,20 @@
 package com.hemebiotech.analytics;
 
-import com.hemebiotech.analytics.objects.RawSymptomFileData;
-import com.hemebiotech.analytics.objects.SymptomFileData;
-import com.hemebiotech.analytics.sourcereaders.SymptomFileReader;
-import io.vavr.collection.List;
+import com.hemebiotech.analytics.counter.SymptomCounter;
+import com.hemebiotech.analytics.model.RawSymptomFileData;
+import com.hemebiotech.analytics.model.SymptomFileData;
+import com.hemebiotech.analytics.reader.SymptomFileReader;
+import com.hemebiotech.analytics.utils.SymptomUtils;
+import com.hemebiotech.analytics.writer.SymptomResultWriter;
 
 import java.io.File;
-import java.util.ArrayList;
+import java.util.List;
 
 public class AnalyticsCounter {
 
     SymptomFileManager symptomFileManager =  new SymptomFileManager();
     SymptomCounter symptomCounter = new SymptomCounter();
-    SymptomUtils symptomUtils =  new SymptomUtils();
-    SymptomResultMaker symptomResultMaker =  new SymptomResultMaker();
+    SymptomResultWriter symptomResultWriter =  new SymptomResultWriter();
 
     public static String filename;
 
@@ -24,17 +25,17 @@ public class AnalyticsCounter {
      * @param args are the args received from main
      */
     public AnalyticsCounter(String[] args){
-        filename = symptomUtils.getResultFileNameFromArgs(args);
-        sources = symptomUtils.getSourcesFromArgs(args);
+        filename = SymptomUtils.getResultFileNameFromArgs(args);
+        sources = SymptomUtils.getSourcesFromArgs(args);
     }
 
     /**
      * App launcher, executing all needed tasks
      */
-    public void launcher(){
-        java.util.List<File> files = symptomFileManager.getFilesFromArgs(sources);
-        ArrayList<RawSymptomFileData> rawFileData = new SymptomFileReader(files).getSymptoms();
-        ArrayList<SymptomFileData> dataList = symptomCounter.convertCount(rawFileData);
-        symptomResultMaker.createFile(dataList, filename);
+    public void start(){
+        List<File> files = symptomFileManager.getFilesFromArgs(sources);
+        List<RawSymptomFileData> rawFileData = new SymptomFileReader(files).getSymptoms();
+        List<SymptomFileData> dataList = symptomCounter.convertCount(rawFileData);
+        symptomResultWriter.write(dataList, filename);
     }
 }
