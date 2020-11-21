@@ -1,8 +1,9 @@
-package com.hemebiotech.analytics.sourcereaders;
+package com.hemebiotech.analytics.reader;
 
-import com.hemebiotech.analytics.Main;
-import com.hemebiotech.analytics.objects.RawSymptomFileData;
-import org.apache.log4j.Logger;
+import com.hemebiotech.analytics.exception.ReaderException;
+import com.hemebiotech.analytics.model.RawSymptomFileData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public class SymptomFileReader implements ISymptomReader{
 
-    private Logger logger = Main.getLogger();
+    private Logger logger = LoggerFactory.getLogger(SymptomFileReader.class);
 
     private List<File> filelist;
 
@@ -33,24 +34,23 @@ public class SymptomFileReader implements ISymptomReader{
      * @return a raw listing of all SymptomFileData obtained from a data source, duplicates are possible/probable
      */
     @Override
-    public ArrayList<RawSymptomFileData> getSymptoms() {
+    public List<RawSymptomFileData> getSymptoms() {
 
-        ArrayList<RawSymptomFileData> symptomsFileDataList = new ArrayList<RawSymptomFileData>();
+        List<RawSymptomFileData> symptomsFileDataList = new ArrayList<>();
 
         for (File file : filelist){
 
-            ArrayList<String> symptomsRaw = new ArrayList<String>();
+            List<String> symptomsRaw = new ArrayList<>();
 
-            try {
-                BufferedReader bufferedReader =  new BufferedReader(new FileReader(file));
+            try(BufferedReader bufferedReader =  new BufferedReader(new FileReader(file))) {
                 String line = bufferedReader.readLine();
                 while (line != null){
                     symptomsRaw.add(line);
                     line = bufferedReader.readLine();
                 }
-                bufferedReader.close();
             } catch (IOException e) {
                 logger.error("Error while reading: " + file.getName() + ", (SKIPPING)");
+                throw new ReaderException("Error while reading: " + file.getName() + ", (SKIPPING)", e);
             }
 
             RawSymptomFileData rawSymptomFileData = new RawSymptomFileData(file.getName(), symptomsRaw);

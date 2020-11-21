@@ -1,8 +1,8 @@
-package com.hemebiotech.analytics.sourcereaders;
+package com.hemebiotech.analytics.reader;
 
-import com.hemebiotech.analytics.objects.RawSymptomFileData;
+import com.hemebiotech.analytics.model.RawSymptomFileData;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Anything that will read symptom data from a source
@@ -18,5 +18,5 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
-	ArrayList<RawSymptomFileData> getSymptoms();
+	List<RawSymptomFileData> getSymptoms();
 }
