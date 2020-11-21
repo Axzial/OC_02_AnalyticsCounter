@@ -1,6 +1,6 @@
-package com.hemebiotech.analytics.objects;
+package com.hemebiotech.analytics.model;
 
-import java.util.TreeMap;
+import java.util.Map;
 
 /**
  * Object that contain a sorted list of symptoms
@@ -8,16 +8,16 @@ import java.util.TreeMap;
 public class SymptomFileData {
 
     private String title;
-    private TreeMap<String, Integer> sympList;
+    private Map<String, Long> sympList;
 
     /**
      * Class constructor
      * @param title name of file
-     * @param sympList sorted symptoms map
+     * @param sympMap sorted symptoms map
      */
-    public SymptomFileData(String title, TreeMap<String, Integer> sympList){
+    public SymptomFileData(String title, Map<String, Long> sympMap){
         this.title = title;
-        this.sympList = sympList;
+        this.sympList = sympMap;
     }
 
     /**
@@ -32,7 +32,7 @@ public class SymptomFileData {
      * Symptoms map
      * @return sorted map of symptoms
      */
-    public TreeMap<String, Integer> getSympList() {
+    public Map<String, Long> getSympList() {
         return sympList;
     }
 

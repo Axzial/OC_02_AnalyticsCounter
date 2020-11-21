@@ -1,6 +1,6 @@
-package com.hemebiotech.analytics.objects;
+package com.hemebiotech.analytics.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Object that contain a raw list of symptoms
@@ -8,14 +8,14 @@ import java.util.ArrayList;
 public class RawSymptomFileData {
 
     private String title;
-    private ArrayList<String> rawSympList;
+    private List<String> rawSympList;
 
     /**
      * Class constructor
      * @param title name of file
      * @param rawSympList raw symptoms list
      */
-    public RawSymptomFileData(String title, ArrayList<String> rawSympList){
+    public RawSymptomFileData(String title, List<String> rawSympList){
         this.title = title;
         this.rawSympList = rawSympList;
     }
@@ -32,7 +32,7 @@ public class RawSymptomFileData {
      * Symptoms list
      * @return raw list of symptoms
      */
-    public ArrayList<String> getRawSympList() {
+    public List<String> getRawSympList() {
         return rawSympList;
     }
 
