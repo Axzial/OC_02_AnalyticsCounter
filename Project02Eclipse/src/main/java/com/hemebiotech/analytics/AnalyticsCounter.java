@@ -21,7 +21,7 @@ public class AnalyticsCounter {
     public static List<String> sources;
 
     /**
-     * Class constructor
+     * Constructor
      * @param args are the args received from main
      */
     public AnalyticsCounter(String[] args){
@@ -30,7 +30,11 @@ public class AnalyticsCounter {
     }
 
     /**
-     * App launcher, executing all needed tasks
+     * App starter, executing all needed tasks
+     * 1 - Getting a list of files from args
+     * 2 - Getting a raw list of symptoms in files
+     * 3 - Getting a ordered and counted list of symptoms.
+     * 4 - Writing to file results...
      */
     public void start(){
         List<File> files = symptomFileManager.getFilesFromArgs(sources);

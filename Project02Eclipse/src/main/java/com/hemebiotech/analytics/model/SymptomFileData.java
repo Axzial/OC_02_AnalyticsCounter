@@ -3,7 +3,7 @@ package com.hemebiotech.analytics.model;
 import java.util.Map;
 
 /**
- * Object that contain a sorted list of symptoms
+ * Contains a counted and sorted map of symptoms but also a file name.
  */
 public class SymptomFileData {
 
@@ -11,9 +11,9 @@ public class SymptomFileData {
     private Map<String, Long> sympList;
 
     /**
-     * Class constructor
-     * @param title name of file
-     * @param sympMap sorted symptoms map
+     * Constructor
+     * @param title name of the current file.
+     * @param sympMap sorted symptoms map.
      */
     public SymptomFileData(String title, Map<String, Long> sympMap){
         this.title = title;
@@ -21,7 +21,7 @@ public class SymptomFileData {
     }
 
     /**
-     * Name of file
+     * Name of the current file
      * @return the name defined
      */
     public String getTitle() {
@@ -30,7 +30,7 @@ public class SymptomFileData {
 
     /**
      * Symptoms map
-     * @return sorted map of symptoms
+     * @return sorted {@link Map} of symptoms and amounts of them
      */
     public Map<String, Long> getSympList() {
         return sympList;

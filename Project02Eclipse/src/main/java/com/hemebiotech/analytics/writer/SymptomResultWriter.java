@@ -12,10 +12,15 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Used to create the result file
+ * Create the result file
  */
 public class SymptomResultWriter implements ISymptomWriter {
 
+    /**
+     * Write to a txt file...
+     * @param rawSymptomFileData is a {@link List} of {@link SymptomFileData}.
+     * @param resultName is the file result name.
+     */
     @Override
     public void write(List<SymptomFileData> rawSymptomFileData, String resultName){
 

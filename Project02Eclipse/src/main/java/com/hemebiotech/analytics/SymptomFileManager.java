@@ -21,7 +21,7 @@ public class SymptomFileManager {
     /**
      * Method to get a list of files from args
      * @param args path to files
-     * @return a list of all files from args
+     * @return a {@link List} of all files from args
      */
     public List<File> getFilesFromArgs(List<String> args){
 

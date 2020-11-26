@@ -3,7 +3,7 @@ package com.hemebiotech.analytics.model;
 import java.util.List;
 
 /**
- * Object that contain a raw list of symptoms
+ * Contains a raw symptoms list but also a file name.
  */
 public class RawSymptomFileData {
 
@@ -11,9 +11,9 @@ public class RawSymptomFileData {
     private List<String> rawSympList;
 
     /**
-     * Class constructor
-     * @param title name of file
-     * @param rawSympList raw symptoms list
+     * Constructor
+     * @param title is the name of the current {@link java.io.File}
+     * @param rawSympList is a list of {@link String} containing all the syptoms of a file.
      */
     public RawSymptomFileData(String title, List<String> rawSympList){
         this.title = title;
@@ -21,7 +21,7 @@ public class RawSymptomFileData {
     }
 
     /**
-     * Name of file
+     * Name of the current file
      * @return the name defined
      */
     public String getTitle() {
@@ -29,8 +29,8 @@ public class RawSymptomFileData {
     }
 
     /**
-     * Symptoms list
-     * @return raw list of symptoms
+     * Symptoms list as {@link String}
+     * @return raw {@link List} of symptoms
      */
     public List<String> getRawSympList() {
         return rawSympList;
