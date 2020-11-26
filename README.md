@@ -1,5 +1,6 @@
 # Analytics Counter
-A small Java project for [OpenClassrooms](https://openclassrooms.com) (Project 2)
+AnalyticsCounter is a small program to count occurrences of symptoms in a File.
+A Java project for [OpenClassrooms](https://openclassrooms.com)
 
 ## Application Infos
 - Java 8
