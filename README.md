@@ -7,10 +7,9 @@ A Java project for [OpenClassrooms](https://openclassrooms.com)
 - Maven
 
 ## Usage
-```bash
-mvn clean install
-java -jar <JAR> <OUTPUT_NAME> [<INPUT_FILE(S)>]
-```
+<p align="left">
+  <img width="45%" src="https://cdn.discordapp.com/attachments/630295737602932736/783007399324680222/unknown.png" />
+</p>
 
 ## Exceptions
 - ReaderException (Error while reading your file...)
